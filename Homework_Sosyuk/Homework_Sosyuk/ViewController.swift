@@ -37,7 +37,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             SectionData(cells: [
                 .init(name: "Nikita", surname: "Sosyuk 🦍", numberPhone: "+7 (908) 733-74-45"),
                 .init(name: "Nikita", surname: "Lyapustin 👨🏼‍💻", numberPhone: "+7 (917) 722-72-55")
-            ], header: "N")
+            ], header: "N"),
+            SectionData(cells: [
+                .init(name: "Sasha", surname: "Chernyadev 👊", numberPhone: "+7 (917) 722-72-51")
+            ], header: "S")
         ]
     }
     
@@ -74,11 +77,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             = storyboard?.instantiateViewController(identifier: "ProfileViewController")
             else { return }
         
-        guard let cellData = sectionsData?[indexPath.section].cells[indexPath.row]
+        guard let header = sectionsData?[indexPath.section].header, let cellData = sectionsData?[indexPath.section].cells[indexPath.row]
             else { fatalError("There aren't needed data") }
         
         profileViewController.loadViewIfNeeded()
-        profileViewController.setData(name: cellData.name, surname: cellData.surname, number: cellData.numberPhone, letter: cellData.name.first)
+        profileViewController.setData(name: cellData.name, surname: cellData.surname, number: cellData.numberPhone, letter: header)
         show(profileViewController, sender: nil)
     }
     

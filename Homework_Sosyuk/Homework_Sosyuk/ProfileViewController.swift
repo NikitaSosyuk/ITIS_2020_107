@@ -18,7 +18,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    func setData(name: String, surname: String, number: String, letter: Character?) {
+    func setData(name: String, surname: String, number: String, letter: String) {
         stackView.setProfileData(name: name, surname: surname, number: number)
         letterView.setLetter(letter)
     }

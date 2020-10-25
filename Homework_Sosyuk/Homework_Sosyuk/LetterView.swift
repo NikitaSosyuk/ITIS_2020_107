@@ -9,7 +9,7 @@
 import UIKit
 
 class LetterView: UIView {
-
+    
     @IBOutlet private var letterLabel: UILabel!
     
     override func awakeFromNib() {
@@ -19,10 +19,8 @@ class LetterView: UIView {
         letterLabel.textColor = .white
     }
     
-    func setLetter(_ letter : Character?) {
-        if let char = letter {
-            letterLabel.text = String(describing: char)
-        }
+    func setLetter(_ letter : String) {
+        letterLabel.text = letter
     }
     
 }
